@@ -109,6 +109,10 @@ var app = express();
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
+app.get('/', function(request, response) {
+  response.redirect('/artists/1');
+});
+
 /* responds with first page's artists */
 app.get('/artists', function(request, response) {
   response.redirect('/artists/1');
@@ -191,4 +195,6 @@ app.get('/pages', function(request, response) {
   });
 });
 
-
+app.listen(process.env.PORT, function(){
+  console.log("Strežnik je pognan!");
+});
